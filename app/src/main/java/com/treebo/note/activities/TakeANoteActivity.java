@@ -1,7 +1,9 @@
 package com.treebo.note.activities;
 
 import com.treebo.note.R;
+import com.treebo.note.database.contract.NoteContract;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ public class TakeANoteActivity extends AppCompatActivity {
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_take_a_note_layout);
+		initViews();
 	}
 
 
@@ -57,9 +60,19 @@ public class TakeANoteActivity extends AppCompatActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.save_note) {
-
+			String title = mNoteTitle.getText().toString().trim();
+			String content = mNoteContent.getText().toString().trim();
+			long noteId = System.currentTimeMillis();
+			long lastUPdated = System.currentTimeMillis();
+			ContentValues values = NoteContract.getInsertValues(title, content, noteId, lastUPdated);
+			getContentResolver().insert(NoteContract.URI_NOTE, values);
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
 	}
 }
 

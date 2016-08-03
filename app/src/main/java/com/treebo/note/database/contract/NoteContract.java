@@ -1,5 +1,6 @@
 package com.treebo.note.database.contract;
 
+import android.content.ContentValues;
 import android.net.Uri;
 
 /**
@@ -25,4 +26,14 @@ public class NoteContract {
 			COLUMNT_CONTENT + " TEXT "
 			+ ");";
 
+
+
+	public static ContentValues getInsertValues(String title, String content, long noteId, long lastUpdated){
+		ContentValues values= new ContentValues();
+		values.put(COLUMN_TITLE,title);
+		values.put(COLUMNT_CONTENT,content);
+		values.put(COLUMN_LAST_UPDATED,lastUpdated);
+		values.put(COLUMN_NOTE_ID,noteId);
+		return values;
+	}
 }
