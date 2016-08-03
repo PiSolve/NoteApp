@@ -52,6 +52,11 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.BaseVH
 		return mCursor != null ? mCursor.getCount() : 0;
 	}
 
+	public void swapCursor(Cursor data) {
+		mCursor = data;
+		notifyDataSetChanged();
+	}
+
 
 	public class NoteVh extends BaseVH implements View.OnClickListener {
 		TextView title, content;
