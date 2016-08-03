@@ -13,7 +13,7 @@ import android.support.annotation.Nullable;
  * Created by Appple on 03/08/16.
  */
 public class DataProvider extends ContentProvider {
-	public static final String AUTHORITY = "com.dunzo.user.provider.auth";
+	public static final String AUTHORITY = "com.treebo.note.provider.auth";
 	public static final String BASE_URI_STRING = "content://" + AUTHORITY;
 	private static final UriMatcher URI_MATCHER;
 	private DatabaseHelper helper;

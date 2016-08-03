@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:id="@+id/take_note_title"
+              android:hint="Enter Note Title"
+              android:padding="10dp"
+              android:textSize="13sp"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:id="@+id/take_note_content"
+              android:hint="Enter Note Content"
+              android:layout_marginTop="10dp"
+              android:padding="10dp"
+              android:textSize="13sp"/>
+
+</LinearLayout>
