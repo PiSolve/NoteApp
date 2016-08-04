@@ -40,6 +40,8 @@ public class NoteListActivity extends AppCompatActivity implements LoaderManager
 			;
 
 		});
+
+		getSupportLoaderManager().initLoader(0, null, this);
 	}
 
 
@@ -78,11 +80,13 @@ public class NoteListActivity extends AppCompatActivity implements LoaderManager
 
 		return super.onOptionsItemSelected(item);
 	}
+
 	@Override
 	protected void onStart() {
-		getLoaderManager().initLoader(0, null, this);
 		super.onStart();
+		getSupportLoaderManager().getLoader(0).forceLoad();
 	}
+
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		return new CursorLoader(this, NoteContract.URI_NOTE, null, null, null, NoteContract.SORT_ORDER);
@@ -98,7 +102,6 @@ public class NoteListActivity extends AppCompatActivity implements LoaderManager
 	public void onLoaderReset(Loader<Cursor> loader) {
 
 	}
-
 
 
 }
