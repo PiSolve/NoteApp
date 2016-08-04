@@ -46,7 +46,7 @@ public class EditANoteActivity extends AppCompatActivity {
 		if (getIntent() != null && getIntent().getExtras() != null) {
 			mExtraTitle = getIntent().getStringExtra(TITLE);
 			mExtraContent = getIntent().getStringExtra(CONTENT);
-			mExtraNoteID = getIntent().getLongExtra(CONTENT, 0);
+			mExtraNoteID = getIntent().getLongExtra(NOTE_ID, 0);
 		}
 	}
 
